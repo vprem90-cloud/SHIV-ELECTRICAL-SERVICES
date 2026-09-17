@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Shiv Electrical Services | Electrical & CCTV Services in Mumbai</title>
+  <meta name="description" content="Shiv Electrical Services provides electrical wiring, repair, maintenance and CCTV installation services in Mumbai.">
+  <meta name="theme-color" content="#111827">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;color:#222;background:#f7f8fa;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{width:92%;max-width:1150px;margin:auto}
+
+    header{position:sticky;top:0;z-index:1000;background:#111827;color:#fff;box-shadow:0 2px 12px rgba(0,0,0,.2)}
+    .nav{min-height:70px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:21px;font-weight:800;color:#facc15}
+    .logo span{display:block;color:#fff;font-size:10px;letter-spacing:1px;font-weight:500}
+    nav{display:flex;gap:23px}
+    nav a{font-size:15px;font-weight:600}
+    nav a:hover{color:#facc15}
+    .menu-btn{display:none;border:0;background:transparent;color:#fff;font-size:28px;cursor:pointer}
+
+    .hero{min-height:650px;display:flex;align-items:center;background:linear-gradient(rgba(17,24,39,.9),rgba(17,24,39,.94));color:#fff}
+    .hero-content{max-width:730px}
+    .badge{display:inline-block;background:#facc15;color:#111827;padding:7px 14px;border-radius:30px;font-size:13px;font-weight:700;margin-bottom:20px}
+    .hero h1{font-size:clamp(38px,6vw,68px);line-height:1.08;margin-bottom:20px}
+    .hero h1 span{color:#facc15}
+    .hero p{font-size:18px;color:#d1d5db;margin-bottom:30px;max-width:650px}
+    .buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:13px 22px;border-radius:8px;font-weight:700;transition:.2s;border:2px solid transparent}
+    .btn-primary{background:#facc15;color:#111827}
+    .btn-primary:hover{background:#fde047;transform:translateY(-2px)}
+    .btn-outline{border-color:#fff;color:#fff}
+    .btn-outline:hover{background:#fff;color:#111827}
+
+    section{padding:80px 0}
+    .section-title{text-align:center;margin-bottom:45px}
+    .section-title h2{font-size:36px;color:#111827;margin-bottom:8px}
+    .section-title p{color:#6b7280}
+
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{background:#fff;padding:30px 24px;border-radius:14px;box-shadow:0 5px 22px rgba(0,0,0,.07);transition:.25s;border:1px solid #eee}
+    .card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.11)}
+    .icon{width:55px;height:55px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:#fef3c7;font-size:27px;margin-bottom:18px}
+    .card h3{margin-bottom:10px;color:#111827;font-size:21px}
+    .card p{color:#6b7280;font-size:15px}
+
+    .feature{background:#fff}
+    .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+    .feature-box{background:#111827;color:#fff;padding:45px;border-radius:18px}
+    .feature-box h2{font-size:35px;margin-bottom:15px;color:#facc15}
+    .feature-box p{color:#d1d5db;margin-bottom:20px}
+    .check-list{list-style:none}
+    .check-list li{margin:12px 0;font-weight:600}
+    .check-list li::before{content:"✓";color:#eab308;font-weight:bold;margin-right:10px}
+
+    .contact{background:#f3f4f6}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+    .contact-card{background:#fff;padding:30px;border-radius:14px;box-shadow:0 5px 20px rgba(0,0,0,.06)}
+    .contact-card h3{margin-bottom:18px;color:#111827}
+    .contact-item{margin:16px 0}
+    .contact-item strong{display:block;color:#111827}
+    .contact-item span{color:#6b7280}
+    .contact-form input,.contact-form textarea{width:100%;padding:13px;margin-bottom:14px;border:1px solid #d1d5db;border-radius:8px;font-family:inherit;font-size:15px}
+    .contact-form textarea{min-height:130px;resize:vertical}
+    .contact-form button{width:100%;border:0;cursor:pointer}
+
+    footer{background:#111827;color:#d1d5db;padding:35px 0;text-align:center}
+    footer strong{color:#facc15}
+
+    .whatsapp{position:fixed;right:20px;bottom:20px;z-index:2000;background:#25D366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:27px;box-shadow:0 5px 20px rgba(0,0,0,.25);transition:.2s}
+    .whatsapp:hover{transform:scale(1.08)}
+
+    @media(max-width:800px){
+      .menu-btn{display:block}
+      nav{display:none;position:absolute;left:0;top:70px;width:100%;background:#111827;flex-direction:column;padding:20px;gap:0}
+      nav.active{display:flex}
+      nav a{padding:12px 0;border-bottom:1px solid #374151}
+      .hero{min-height:590px}
+      .hero p{font-size:16px}
+      .cards{grid-template-columns:1fr}
+      .feature-grid,.contact-grid{grid-template-columns:1fr}
+      .feature-box{padding:30px 24px}
+      section{padding:60px 0}
+      .section-title h2{font-size:30px}
+    }
+
+    @media(max-width:450px){
+      .logo{font-size:18px}
+      .hero h1{font-size:40px}
+      .btn{width:100%;text-align:center}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       SHIV ELECTRICAL SERVICES
+       EDIT ONLY THE BUSINESS DETAILS IN THE SETTINGS BELOW.
+       ========================================================= -->
+
+  <script>
+    const BUSINESS = {
+      name: "Shiv Electrical Services",
+      owner: "Saheb",
+      city: "Mumbai",
+      state: "Maharashtra",
+      pincode: "400097",
+
+      // IMPORTANT: Replace the XXXXXXXXXX with your 10-digit WhatsApp number.
+      // Example: "919876543210"
+      whatsapp: "91XXXXXXXXXX",
+
+      phoneDisplay: "YOUR PHONE NUMBER",
+      email: "YOUR EMAIL ADDRESS",
+
+      // Optional: replace with your actual Google Maps location link.
+      mapsLink: "YOUR GOOGLE MAPS LINK"
+    };
+  </script>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <a href="#home" class="logo">
+        SHIV ELECTRICAL
+        <span>SERVICES • MUMBAI</span>
+      </a>
+
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+
+      <nav id="navbar">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#services" onclick="closeMenu()">Services</a>
+        <a href="#cctv" onclick="closeMenu()">CCTV</a>
+        <a href="#wiring" onclick="closeMenu()">Wiring</a>
+        <a href="#maintenance" onclick="closeMenu()">Maintenance</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HOME -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <div class="badge">⚡ Electrical • CCTV • Maintenance</div>
+
+        <h1>
+          Reliable Electrical
+          <span>Services in Mumbai</span>
+        </h1>
+
+        <p>
+          Professional electrical installation, wiring, repair,
+          maintenance and CCTV services for homes, shops and offices.
+        </p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="#contact">Get a Quote</a>
+          <a class="btn btn-outline" id="heroWhatsapp" target="_blank" rel="noopener">
+            WhatsApp Enquiry
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>Electrical solutions for residential and commercial requirements.</p>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <div class="icon">⚡</div>
+          <h3>Electrical Services</h3>
+          <p>Switch, socket, light, fan, MCB, DB and other electrical installation and repair work.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">📹</div>
+          <h3>CCTV Installation</h3>
+          <p>CCTV camera installation, DVR/NVR setup, wiring, configuration and troubleshooting.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🔌</div>
+          <h3>Wiring</h3>
+          <p>New wiring, rewiring, point installation, concealed and surface wiring solutions.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🔧</div>
+          <h3>Repair Work</h3>
+          <p>Electrical fault finding, short-circuit troubleshooting, switches, sockets, lights and fan repairs.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🏠</div>
+          <h3>Home Electrical Work</h3>
+          <p>Electrical work for flats, houses, kitchens, bedrooms, bathrooms and common areas.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🏢</div>
+          <h3>Commercial Work</h3>
+          <p>Electrical installation and maintenance for shops, offices and other commercial properties.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CCTV -->
+  <section class="feature" id="cctv">
+    <div class="container feature-grid">
+      <div>
+        <div class="section-title" style="text-align:left;margin-bottom:20px">
+          <h2>CCTV Services</h2>
+          <p>Security camera installation and support.</p>
+        </div>
+
+        <p>We provide CCTV installation and related electrical work for homes, shops and offices.</p>
+
+        <ul class="check-list" style="margin-top:20px">
+          <li>Camera Installation</li>
+          <li>DVR / NVR Setup</li>
+          <li>Camera Cabling</li>
+          <li>Wi-Fi Camera Setup</li>
+          <li>Camera Troubleshooting</li>
+          <li>System Maintenance</li>
+        </ul>
+      </div>
+
+      <div class="feature-box">
+        <h2>Need CCTV?</h2>
+        <p>Tell us your requirement and location. We can discuss the number of cameras, wiring and installation work.</p>
+        <a class="btn btn-primary" id="cctvWhatsapp" target="_blank" rel="noopener">Ask on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WIRING -->
+  <section id="wiring">
+    <div class="container feature-grid">
+      <div class="feature-box">
+        <h2>Electrical Wiring</h2>
+        <p>New wiring and rewiring for residential and commercial electrical requirements.</p>
+        <a class="btn btn-primary" href="#contact">Request Enquiry</a>
+      </div>
+
+      <div>
+        <h2>Wiring Solutions</h2>
+        <p style="margin-top:15px;color:#6b7280">
+          From individual electrical points to complete property wiring, we provide installation and repair solutions.
+        </p>
+
+        <ul class="check-list" style="margin-top:20px">
+          <li>Light Points</li>
+          <li>Fan Points</li>
+          <li>Socket Points</li>
+          <li>Switch & Plate Installation</li>
+          <li>DB / MCB Work</li>
+          <li>Meter Board Work</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAINTENANCE -->
+  <section class="feature" id="maintenance">
+    <div class="container">
+      <div class="section-title">
+        <h2>Electrical Maintenance</h2>
+        <p>Regular electrical maintenance and troubleshooting.</p>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <div class="icon">🛠️</div>
+          <h3>Fault Finding</h3>
+          <p>Identification and troubleshooting of electrical faults and supply issues.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">💡</div>
+          <h3>Light & Fan Work</h3>
+          <p>Installation, replacement and repair of lights, fans and related electrical points.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">⚙️</div>
+          <h3>Preventive Maintenance</h3>
+          <p>Electrical checking and maintenance to help identify problems before they become major faults.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Shiv Electrical Services</h2>
+        <p>Send your requirement for a quotation or service enquiry.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+          <h3>Business Information</h3>
+
+          <div class="contact-item">
+            <strong>Business Name</strong>
+            <span id="businessName"></span>
+          </div>
+
+          <div class="contact-item">
+            <strong>Owner</strong>
+            <span id="ownerName"></span>
+          </div>
+
+          <div class="contact-item">
+            <strong>Location</strong>
+            <span id="locationText"></span>
+          </div>
+
+          <div class="contact-item">
+            <strong>Phone</strong>
+            <span id="phoneText"></span>
+          </div>
+
+          <div class="contact-item">
+            <strong>Email</strong>
+            <span id="emailText"></span>
+          </div>
+
+          <a class="btn btn-primary" id="contactWhatsapp" target="_blank" rel="noopener">
+            💬 WhatsApp Enquiry
+          </a>
+
+          <br><br>
+
+          <a class="btn btn-outline" style="border-color:#111827;color:#111827" id="mapsButton" target="_blank" rel="noopener">
+            📍 Open Location
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <h3>Quick Enquiry</h3>
+
+          <form class="contact-form" onsubmit="sendWhatsApp(event)">
+            <input id="name" type="text" placeholder="Your Name" required>
+            <input id="phone" type="tel" placeholder="Your Mobile Number" required>
+            <textarea id="message" placeholder="Tell us about your electrical / CCTV requirement" required></textarea>
+
+            <button class="btn btn-primary" type="submit">
+              Send Enquiry on WhatsApp
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> <strong id="footerName"></strong>. All Rights Reserved.</p>
+      <p style="margin-top:8px;font-size:13px">
+        Electrical • CCTV • Wiring • Maintenance | Mumbai
+      </p>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a class="whatsapp" id="floatingWhatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">☎</a>
+
+  <script>
+    // Fill business details
+    document.getElementById("businessName").textContent = BUSINESS.name;
+    document.getElementById("ownerName").textContent = BUSINESS.owner;
+    document.getElementById("locationText").textContent =
+      BUSINESS.city + ", " + BUSINESS.state + " " + BUSINESS.pincode;
+    document.getElementById("phoneText").textContent = BUSINESS.phoneDisplay;
+    document.getElementById("emailText").textContent = BUSINESS.email;
+    document.getElementById("footerName").textContent = BUSINESS.name;
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // WhatsApp links
+    const generalMessage =
+      "Hello " + BUSINESS.name + ", I have a service enquiry.";
+
+    const cctvMessage =
+      "Hello " + BUSINESS.name + ", I need a CCTV quotation.";
+
+    function whatsappLink(message) {
+      return "https://wa.me/" + BUSINESS.whatsapp +
+             "?text=" + encodeURIComponent(message);
+    }
+
+    document.getElementById("heroWhatsapp").href = whatsappLink(generalMessage);
+    document.getElementById("cctvWhatsapp").href = whatsappLink(cctvMessage);
+    document.getElementById("contactWhatsapp").href = whatsappLink(generalMessage);
+    document.getElementById("floatingWhatsapp").href = whatsappLink(generalMessage);
+
+    // Google Maps
+    const mapsButton = document.getElementById("mapsButton");
+    if (BUSINESS.mapsLink && BUSINESS.mapsLink !== "YOUR GOOGLE MAPS LINK") {
+      mapsButton.href = BUSINESS.mapsLink;
+    } else {
+      mapsButton.href = "#";
+      mapsButton.onclick = function(e) {
+        e.preventDefault();
+        alert("Please add your Google Maps link in the BUSINESS section of this file.");
+      };
+    }
+
+    // Mobile menu
+    function toggleMenu() {
+      document.getElementById("navbar").classList.toggle("active");
+    }
+
+    function closeMenu() {
+      document.getElementById("navbar").classList.remove("active");
+    }
+
+    // Enquiry form -> WhatsApp
+    function sendWhatsApp(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const text =
+        "Hello " + BUSINESS.name + ",\n\n" +
+        "Name: " + name + "\n" +
+        "Mobile: " + phone + "\n" +
+        "Requirement: " + message;
+
+      window.open(whatsappLink(text), "_blank");
+    }
+  </script>
+
+</body>
+</html>
